@@ -62,6 +62,6 @@ git merge <new_branch_name>
 git push origin master
 # might wanna delete the dev branch
 git branch -d <new_branch_name>
-
+git push --delete origin <branch_name>
 
 
