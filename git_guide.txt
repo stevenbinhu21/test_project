@@ -8,3 +8,59 @@ git push -u origin master
 …or push an existing repository from the command line
 git remote add origin https://github.com/stevenbinhu21/test_project.git
 git push -u origin master
+
+
+#add submodule:
+cd master_repo
+git submodule add <remote git repo of the project for submodule>
+git commit -m "...."
+git push -u origin master
+
+#update submodule
+git submodule add <ssh://submodule_url> submodule_dir
+git submodule init
+
+# then after sometime, the submodule project changed
+cd submodule_dir
+# switch to master
+git checkout master
+
+# update master
+git pull
+
+# back to you submodule project root
+cd ..
+
+git commit -am "pulled down update to submodule dir"
+
+# or in loop 
+git submodule foreach git pull origin master
+
+
+
+#branching the project
+# create a new branch from master
+git clone <master.git url>
+cd <that file>
+git branch <new_branch_name> master
+# switch to the new branch repo
+git checkout <new_branch_name>
+
+# do whatever that updates the files, codes etc.
+git add <some stuff>
+git commit -m "added stuff to new branch repo"
+git push origin <new_branch_name>
+
+# then go check github for the new branch 
+
+# merge branch to master
+# care to do it at the github page? 
+# no? then do
+# switch to master
+git checkout master
+git merge <new_branch_name>
+# might wanna delete the dev branch
+git branch -d <new_branch_name>
+
+
+
